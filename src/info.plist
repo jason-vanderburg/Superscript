@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>superscript.alfredworkflow</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>0A7103CB-0904-4E4B-A778-BEC0F67324E5</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A559F5CF-F501-464E-B33A-743E3BB75F2D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A559F5CF-F501-464E-B33A-743E3BB75F2D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>40A7E4C4-AD01-4FC4-8800-82320E5EECF3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Jason Vanderburg</string>
+	<key>description</key>
+	<string>make characters and/or strings superscript</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Superscript</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>sup</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Superscript a character or string</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>0A7103CB-0904-4E4B-A778-BEC0F67324E5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>input="$1"
+
+# Convert entire string to superscript
+echo "$input" | sed \
+  -e 's/a/ᵃ/g' -e 's/b/ᵇ/g' -e 's/c/ᶜ/g' -e 's/d/ᵈ/g' -e 's/e/ᵉ/g' \
+  -e 's/f/ᶠ/g' -e 's/g/ᵍ/g' -e 's/h/ʰ/g' -e 's/i/ⁱ/g' -e 's/j/ʲ/g' \
+  -e 's/k/ᵏ/g' -e 's/l/ˡ/g' -e 's/m/ᵐ/g' -e 's/n/ⁿ/g' -e 's/o/ᵒ/g' \
+  -e 's/p/ᵖ/g' -e 's/r/ʳ/g' -e 's/s/ˢ/g' -e 's/t/ᵗ/g' -e 's/u/ᵘ/g' \
+  -e 's/v/ᵛ/g' -e 's/w/ʷ/g' -e 's/x/ˣ/g' -e 's/y/ʸ/g' -e 's/z/ᶻ/g' \
+  -e 's/0/⁰/g' -e 's/1/¹/g' -e 's/2/²/g' -e 's/3/³/g' -e 's/4/⁴/g' \
+  -e 's/5/⁵/g' -e 's/6/⁶/g' -e 's/7/⁷/g' -e 's/8/⁸/g' -e 's/9/⁹/g' \
+  -e 's/+/⁺/g' -e 's/-/⁻/g' -e 's/(/⁽/g' -e 's/)/⁾/g' | tr -d '\n'</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A559F5CF-F501-464E-B33A-743E3BB75F2D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>40A7E4C4-AD01-4FC4-8800-82320E5EECF3</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>Superscript is an Alfred 5 workflow that formats selected text into superscript using Unicode superscript characters.
+
+🔧 Usage:
+- Open search bar
+- Trigger the workflow with your assigned keyword (e.g., `sup `)
+- Type character OR string
+- Output will convert regular characters to superscript equivalents where possible and paste directly to the app you are typing in.
+
+🛠 Built for quick formatting and aesthetic tweaks in code comments, messages, and notes.
+   
+
+Developed by Jason Vanderburg  
+With support from ChatGPT (OpenAI), for logic and iteration
+
+© 2025 Jason Vanderburg — Released under MIT License</string>
+	<key>uidata</key>
+	<dict>
+		<key>0A7103CB-0904-4E4B-A778-BEC0F67324E5</key>
+		<dict>
+			<key>xpos</key>
+			<real>50</real>
+			<key>ypos</key>
+			<real>55</real>
+		</dict>
+		<key>40A7E4C4-AD01-4FC4-8800-82320E5EECF3</key>
+		<dict>
+			<key>xpos</key>
+			<real>380</real>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+		<key>A559F5CF-F501-464E-B33A-743E3BB75F2D</key>
+		<dict>
+			<key>xpos</key>
+			<real>215</real>
+			<key>ypos</key>
+			<real>60</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/jason-vanderburg/Superscript</string>
+</dict>
+</plist>

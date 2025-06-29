@@ -13,6 +13,14 @@ Built for quick formatting and aesthetic tweaks in code comments, messages, and 
 
 ---
 
+## 🧠 Source
+
+This workflow is defined entirely by `info.plist`, which contains Alfred's internal configuration and automation logic.
+
+You can view it here: [`src/info.plist`](./src/info.plist)
+
+There are no external scripts or dependencies — all behavior is handled using Alfred's built-in actions.
+
 **Developed by Jason Vanderburg**  
 With support from ChatGPT (OpenAI), for logic and iteration
 
